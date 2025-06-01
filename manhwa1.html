@@ -136,6 +136,9 @@
       chapterImages.innerHTML = ''; // Limpar imagens anteriores
 
       const chapter = this.value;
+      // Salva o capítulo selecionado no localStorage
+      localStorage.setItem('manhwa1-last-chapter', chapter);
+
       const imageCount = 20; // Total de imagens por capítulo
       const totalImagesForChapter = getTotalImagesForChapter(chapter); // Função para obter o total de imagens do capítulo
 
@@ -146,6 +149,17 @@
             <img src="lagrimas/imagens/capitulos/capitulo${chapter}_${i}.jpg" alt="Capítulo ${chapter} - Imagem ${i}">
           `;
         }
+      }
+    });
+
+    // Ao carregar a página, verifica se há capítulo salvo e seleciona automaticamente
+    window.addEventListener('DOMContentLoaded', function() {
+      const lastChapter = localStorage.getItem('manhwa1-last-chapter');
+      const select = document.getElementById("chapter-select");
+      if (lastChapter && select.querySelector(`option[value="${lastChapter}"]`)) {
+        select.value = lastChapter;
+        // Dispara o evento de mudança para carregar as imagens do capítulo salvo
+        select.dispatchEvent(new Event('change'));
       }
     });
 

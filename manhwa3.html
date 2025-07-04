@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lágrimas Sobre Flores Murchas</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Link para o Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Estilo para o botão de voltar ao topo */
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #8a2be2; /* Cor roxa */
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      display: none; /* Inicialmente invisível */
+      z-index: 1000;
+      transition: opacity 0.3s ease;
+    }
+
+    #back-to-top:hover {
+      background-color: #6a1b9a; /* Cor roxa mais escura no hover */
+    }
+
+    /* Ícone da seta */
+    #back-to-top i {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+    <!-- Mini avatar com mensagens -->
+<div class="avatar-container">
+    <div class="avatar">
+      <img src="images/avatar.png" alt="Avatar">
+    </div>
+    <div class="message">
+      <p class="message-text">Você está lendo "Lágrimas Sobre Flores Murchas"</p>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <!-- Agora a logo é um link que leva à index.html -->
+        <a href="index.html">
+          <img src="images/logo.png" id="logo" alt="Logo">
+        </a>
+      </div>
+      <div>
+        <h1>Lágrimas Sobre Flores Murchas</h1>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h2>Selecione o Capítulo:</h2>
+    <select id="chapter-select" class="select-chapter">
+      <option value="">Selecione um capítulo</option>
+      <option value="57">Capítulo 57</option>
+      <option value="56">Capítulo 56</option>
+      <option value="55">Capítulo 55</option>
+      <option value="54">Capítulo 54</option>
+      <option value="53">Capítulo 53</option>
+      <option value="52">Capítulo 52</option>
+      <option value="51">Capítulo 51</option>
+      <option value="50">Capítulo 50</option>
+      <option value="49">Capítulo 49</option>
+      <option value="48">Capítulo 48</option>
+      <option value="47">Capítulo 47</option>
+      <option value="46">Capítulo 46</option>
+      <option value="45">Capítulo 45</option>
+      <option value="44">Capítulo 44</option>
+      <option value="43">Capítulo 43</option>
+      <option value="42">Capítulo 42</option>
+      <option value="41">Capítulo 41</option>
+      <option value="40">Capítulo 40</option>
+      <option value="39">Capítulo 39</option>
+      <option value="38">Capítulo 38</option>
+      <option value="37">Capítulo 37</option>
+      <option value="36">Capítulo 36</option>
+      <option value="35">Capítulo 35</option>
+      <option value="34">Capítulo 34</option>
+      <option value="33">Capítulo 33</option>
+      <option value="32">Capítulo 32</option>
+      <option value="31">Capítulo 31</option>
+      <option value="30">Capítulo 30</option>
+      <option value="29">Capítulo 29</option>
+      <option value="28">Capítulo 28</option>
+      <option value="27">Capítulo 27</option>
+      <option value="26">Capítulo 26</option>
+      <option value="25">Capítulo 25</option>
+      <option value="24">Capítulo 24</option>
+      <option value="23">Capítulo 23</option>
+      <option value="22">Capítulo 22</option>
+      <option value="21">Capítulo 21</option>
+      <option value="20">Capítulo 20</option>
+      <option value="19">Capítulo 19</option>
+      <option value="18">Capítulo 18</option>
+      <option value="17">Capítulo 17</option>
+      <option value="16">Capítulo 16</option>
+      <option value="15">Capítulo 15</option>
+      <option value="14">Capítulo 14</option>
+      <option value="13">Capítulo 13</option>
+      <option value="12">Capítulo 12</option>
+      <option value="11">Capítulo 11</option>
+      <option value="10">Capítulo 10</option>
+      <option value="9">Capítulo 9</option>
+      <option value="8">Capítulo 8</option>
+      <option value="7">Capítulo 7</option>
+      <option value="6">Capítulo 6</option>
+      <option value="5">Capítulo 5</option>
+      <option value="4">Capítulo 4</option>
+      <option value="3">Capítulo 3</option>
+      <option value="2">Capítulo 2</option>
+      <option value="1">Capítulo 1</option>
+    </select>
+
+    <!-- Container para exibir as imagens dos capítulos -->
+    <div id="chapter-images" class="chapter-images"></div>
+  </main>
+
+  <footer>
+    <p>© 2025 - Feito com 💜 pelo seu querido marido</p>
+  </footer>
+
+  <script>
+    // Função para atualizar as imagens do capítulo com base na seleção
+    document.getElementById("chapter-select").addEventListener("change", function() {
+      const chapterImages = document.getElementById("chapter-images");
+      chapterImages.innerHTML = ''; // Limpar imagens anteriores
+
+      const chapter = this.value;
+      // Salva o capítulo selecionado no localStorage
+      localStorage.setItem('manhwa1-last-chapter', chapter);
+
+      const imageCount = 20; // Total de imagens por capítulo
+      const totalImagesForChapter = getTotalImagesForChapter(chapter); // Função para obter o total de imagens do capítulo
+
+      if (chapter) {
+        // Adicionar as imagens correspondentes ao capítulo selecionado
+        for (let i = 1; i <= totalImagesForChapter; i++) {
+          chapterImages.innerHTML += `
+            <img src="lagrimas/imagens/capitulos/capitulo${chapter}_${i}.jpg" alt="Capítulo ${chapter} - Imagem ${i}">
+          `;
+        }
+      }
+    });
+
+    // Ao carregar a página, verifica se há capítulo salvo e seleciona automaticamente
+    window.addEventListener('DOMContentLoaded', function() {
+      const lastChapter = localStorage.getItem('manhwa1-last-chapter');
+      const select = document.getElementById("chapter-select");
+      if (lastChapter && select.querySelector(`option[value="${lastChapter}"]`)) {
+        select.value = lastChapter;
+        // Dispara o evento de mudança para carregar as imagens do capítulo salvo
+        select.dispatchEvent(new Event('change'));
+      }
+    });
+
+    // Função que retorna o número de imagens para o capítulo selecionado
+    function getTotalImagesForChapter(chapter) {
+      const chaptersWithImages = {
+        1: 144,  // Capítulo 1 tem 144 imagens
+        2: 20,  // Capítulo 2 tem 20 imagens
+        3: 12,  // Capítulo 3 tem 12 imagens
+        4: 18,  // Capítulo 4 tem 18 imagens
+        5: 15,  // Capítulo 1 tem 15 imagens
+        37: 20,  // Capítulo 37 tem 20 imagens
+        38: 9,  // Capítulo 38 tem 9 imagens
+        39: 9,  // Capítulo 39 tem 9 imagens
+        40: 12,  // Capítulo 38 tem 12 imagens
+        41: 10,  // Capítulo 41 tem 10 imagens
+        42: 11, // Capítulo 42 tem 11 imagens
+        43: 10, // Capítulo 43 tem 10 imagens
+        44: 15, // Capítulo 44 tem 15 imagens
+        45: 9, // Capítulo 45 tem 9 imagens
+        46: 15, // Capítulo 46 tem 15 imagens
+        47: 9, // Capítulo 47 tem 9 imagens
+        48: 7, // Capítulo 48 tem 7 imagens
+        49: 10, // Capítulo 49 tem 10 imagens
+        50: 17, // Capítulo 50 tem 17 imagens
+        51: 24, // Capítulo 51 tem 24 imagens
+        52: 18, // Capítulo 52 tem 18 imagens
+        53: 20, // Capítulo 53 tem 20 imagens
+        54: 19, // Capítulo 54 tem 19 imagens
+        55: 14, // Capítulo 55 tem 14 imagens
+        56: 16, // Capítulo 56 tem 16 imagens
+        57: 12, // Capítulo 57 tem 12 imagens
+      };
+
+      // Se o capítulo não estiver listado, retorna 0 imagens
+      return chaptersWithImages[chapter] || 0;
+    }
+
+    // Mostrar o botão "Voltar ao Topo" quando o usuário rolar para baixo
+    window.onscroll = function() {
+      const button = document.getElementById("back-to-top");
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        button.style.display = "block"; // Mostrar o botão
+      } else {
+        button.style.display = "none"; // Esconder o botão
+      }
+    };
+
+    // Função para rolar até o topo quando o botão for clicado
+    document.getElementById("back-to-top").addEventListener("click", function() {
+      document.body.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+
+  <!-- Botão de voltar ao topo com ícone de seta para cima -->
+  <button id="back-to-top">
+    <i class="fas fa-arrow-up"></i> <!-- Ícone de seta para cima -->
+  </button>
+</body>
+</html>

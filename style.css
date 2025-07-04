@@ -1,0 +1,363 @@
+/* Estilo base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1F1B2E; /* Cor de fundo mais escura */
+    color: white;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Header */
+  header {
+    background-color: #212121; /* Fundo mais escuro para o cabeçalho */
+    padding: 30px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Ajusta para telas menores */
+  }
+  
+  h1 {
+    font-size: 3em;
+    font-family: 'Arial', sans-serif;
+    color: white; /* Título em branco */
+    text-shadow: none;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border: 3px solid black; /* Borda preta no título */
+    border-radius: 10px;
+    background-color: transparent; /* Fundo transparente para o título */
+  }
+  
+  .logo {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .logo:hover {
+    transform: rotate(360deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+/* Seletor de manhwas */
+.manhwa-selector {
+  margin-top: 60px;
+  padding: 20px;
+}
+
+.manhwa-selector h2 {
+  font-size: 2em;
+  color: #E6A8FF;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+.manhwa-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.manhwa-item {
+  width: 150px;
+  text-align: center;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.manhwa-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.manhwa-item p {
+  margin-top: 10px;
+  font-size: 1.2em;
+  font-family: 'Arial', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.manhwa-item:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.manhwa-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.manhwa-link {
+  display: block;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.manhwa-link:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.manhwa-link p {
+  transition: color 0.3s ease;
+}
+
+.manhwa-link:hover p {
+  color: #7F4F9D;
+}
+  
+  /* Footer */
+  footer {
+    background-color: #212121; /* Fundo mais escuro para o rodapé */
+    padding: 30px;
+    margin-top: 50px;
+    font-size: 1.2em;
+    color: #E6A8FF;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  footer p {
+    transition: color 0.3s ease;
+  }
+  
+  footer p:hover {
+    color: #F8C9FF;
+  }
+  
+  /* Animações e efeitos de fundo */
+  @keyframes backgroundAnimation {
+    0% {
+      background-color: #1F1B2E;
+    }
+    50% {
+      background-color: #2A263C;
+    }
+    100% {
+      background-color: #1F1B2E;
+    }
+  }
+  
+  body {
+    animation: backgroundAnimation 5s infinite alternate;
+  }
+  
+  /* Media Queries para responsividade */
+  
+  /* Telas pequenas (móveis) */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2em;
+      padding: 5px 15px;
+    }
+  
+    .header-content {
+      flex-direction: column;
+    }
+  
+    .logo {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .manhwa-selector h2 {
+      font-size: 1.5em;
+    }
+  
+    .manhwa-item {
+      width: 120px;
+      padding: 8px;
+    }
+  
+    .manhwa-item p {
+      font-size: 1em;
+    }
+  }
+  
+  /* Telas extras pequenas (celulares) */
+  @media (max-width: 480px) {
+    .manhwa-item {
+      width: 100px; /* Aumenta a redução para telas de celular */
+      padding: 5px;
+    }
+  
+    .manhwa-item img {
+      width: 100%;
+      height: auto;
+    }
+  
+    .manhwa-item p {
+      font-size: 0.9em;
+    }
+  
+    footer {
+      font-size: 1em;
+      padding: 20px;
+    }
+  }
+  /* Descrição abaixo do título */
+.description {
+    font-size: 1.2em;
+    color: #E6A8FF; /* Cor suave para a descrição */
+    margin-top: 10px;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Ajustes responsivos para a descrição */
+  @media (max-width: 768px) {
+    .description {
+      font-size: 1em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .description {
+      font-size: 0.9em;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+  /* Avatar com mensagens fofas */
+.avatar-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: avatarAnimation 5s infinite alternate;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #E6A8FF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .message {
+    color: white;
+    font-size: 1.2em;
+    font-family: 'Arial', sans-serif;
+    color: #F8C9FF;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .message-text {
+    margin: 0;
+    max-width: 200px;
+  }
+  
+  /* Animação do avatar */
+  @keyframes avatarAnimation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Responsividade para o avatar */
+  @media (max-width: 768px) {
+    .avatar-container {
+      bottom: 15px;
+      right: 15px;
+      gap: 10px;
+    }
+  
+    .message {
+      font-size: 1em;
+    }
+  
+    .avatar {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .avatar-container {
+      bottom: 10px;
+      right: 10px;
+    }
+  
+    .message {
+      font-size: 0.9em;
+      max-width: 150px;
+    }
+  
+    .avatar {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  select {
+    background-color: #4a148c;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .chapter-images {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .chapter-images img {
+    max-width: 100%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+  }

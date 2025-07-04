@@ -1,6 +1,8 @@
 // Função para retornar ao início (clique na logo)
 function returnToHome() {
-    window.location.href = "#";
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Adiciona um efeito de rolagem suave
   }
   // Mensagens fofas que vão aparecer no avatar
 const messages = [
